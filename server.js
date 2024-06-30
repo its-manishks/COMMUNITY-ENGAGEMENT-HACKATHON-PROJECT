@@ -12,8 +12,7 @@ mongoose.connect('mongodb://localhost:27017/communityPlatform', {
 }).then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
 
-app.get('/', (req, res) => res.send('API Running'));
-
+app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/events', require('./routes/events'));
 app.use('/api/news', require('./routes/news'));
